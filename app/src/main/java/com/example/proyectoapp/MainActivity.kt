@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.proyectoapp.database.DatabaseHelper
 import com.example.proyectoapp.databinding.ActivityMainBinding
 import com.example.proyectoapp.util.SesionManager
+import androidx.appcompat.app.AlertDialog
 
 class MainActivity : AppCompatActivity() {
 
@@ -41,12 +42,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnCerrarSesion.setOnClickListener {
-            SesionManager.autenticado = false
-            val intent = Intent(this, Login::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(intent)
-            finish()
+            confirmarCierreDeSesion()
         }
+
     }
 
     override fun onResume() {
@@ -54,5 +52,20 @@ class MainActivity : AppCompatActivity() {
         if (!::binding.isInitialized) return
         binding.tvContadorProductos.text = dbHelper.obtenerProductos().size.toString()
         binding.tvContadorVentas.text = dbHelper.obtenerVentas().size.toString()
+    }
+
+    private fun confirmarCierreDeSesion() {
+        AlertDialog.Builder(this)
+            .setTitle(R.string.cerrar_sesion_titulo)
+            .setMessage(R.string.cerrar_sesion_mensaje)
+            .setPositiveButton(R.string.si) { _, _ ->
+                SesionManager.autenticado = false
+                val intent = Intent(this, Login::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+                finish()
+            }
+            .setNegativeButton(R.string.no, null)
+            .show()
     }
 }

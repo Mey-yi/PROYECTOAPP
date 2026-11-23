@@ -14,4 +14,10 @@
     <string name="login_sin_huella_titulo">Sin huella registrada</string>
     <string name="login_sin_huella_mensaje">No tienes huellas registradas en este dispositivo. ¿Deseas ir a Configuración para agregar una?</string>
     <string name="login_no_soportada">Autenticación biométrica no soportada.</string>
+    <string name="cerrar_sesion_titulo">Cerrar sesión</string>
+    <string name="cerrar_sesion_mensaje">¿Seguro que quieres salir? Tendrás que usar tu huella para volver a entrar.</string>
+    <string name="si">Sí</string>
+    <string name="no">No</string>
+
+
 </resources>
