@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    tools:context=".Login">
+
+    <TextView
+        android:id="@+id/tvTituloLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Papelería PuntoEscolar"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:textColor="#1E293B"
+        android:layout_marginTop="48dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tvSubtituloLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Control de Inventario y Ventas"
+        android:textSize="16sp"
+        android:textColor="#64748B"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/tvTituloLogin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/contenedorHuella"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="#E2E8F0"
+        app:layout_constraintTop_toBottomOf="@id/tvSubtituloLogin"
+        app:layout_constraintBottom_toTopOf="@id/tvInstruccionLogin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/ivHuella"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_gravity="center"
+            android:contentDescription="Ícono de huella dactilar"
+            android:src="@android:drawable/ic_lock_idle_lock"
+            app:tint="#2563EB" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tvInstruccionLogin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Presiona el botón para validar tu identidad con huella dactilar"
+        android:textAlignment="center"
+        android:textSize="15sp"
+        android:textColor="#334155"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@id/btnAutenticar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btnAutenticar"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:text="Ingresar con Huella"
+        android:textSize="16sp"
+        android:backgroundTint="#2563EB"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@id/tvEstadoLogin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tvEstadoLogin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Esperando autenticación..."
+        android:textAlignment="center"
+        android:textSize="14sp"
+        android:textColor="#DC2626"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

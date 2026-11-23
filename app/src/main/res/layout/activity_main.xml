@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tvTituloMain"
+        android:layout_width="0dp"
+        android:layout_marginTop="25dp"
+        android:layout_height="60dp"
+        android:text="---Papeleria Yireh--- Panel Principal"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#0F172A"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnCerrarSesion" />
+
+    <Button
+        android:id="@+id/btnCerrarSesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="CERRAR SESIÓN"
+        android:backgroundTint="#6495ED"
+        android:textSize="12sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/layoutMetricas"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/tvTituloMain"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginEnd="8dp"
+            android:background="#E0F2FE">
+
+            <TextView
+                android:id="@+id/tvContadorProductos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="#0369A1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Artículos Registrados"
+                android:textSize="13sp"
+                android:textColor="#0C4A6E" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginStart="8dp"
+            android:background="#DCFCE7">
+
+            <TextView
+                android:id="@+id/tvContadorVentas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="#15803D" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ventas Realizadas"
+                android:textSize="13sp"
+                android:textColor="#14532D" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@id/layoutMetricas"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/btnIrInventario"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="ARTICULOS"
+            android:backgroundTint="#4682B4"
+            android:layout_marginBottom="16dp" />
+
+        <Button
+            android:id="@+id/btnIrVentas"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="NUEVA VENTA"
+            android:backgroundTint="#4682B4"
+            android:layout_marginBottom="16dp" />
+
+        <Button
+            android:id="@+id/btnIrReportes"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="HISTORIAL Y CORTES"
+            android:backgroundTint="#4682B4" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

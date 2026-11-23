@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".Formulario">
+
+    <TextView
+        android:id="@+id/tvTituloForm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Datos del Artículo"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp" />
+
+    <EditText
+        android:id="@+id/etNombreProducto"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Nombre (ej. Cuaderno Profesional)"
+        android:inputType="textCapWords"
+        android:layout_marginBottom="12dp" />
+
+    <EditText
+        android:id="@+id/etCategoriaProducto"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Categoría (ej. Escritura, Papel, Arte)"
+        android:inputType="textCapWords"
+        android:layout_marginBottom="12dp" />
+
+    <EditText
+        android:id="@+id/etPrecioProducto"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Precio unitario ($)"
+        android:inputType="numberDecimal"
+        android:layout_marginBottom="12dp" />
+
+    <EditText
+        android:id="@+id/etStockProducto"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Cantidad en stock"
+        android:inputType="number"
+        android:layout_marginBottom="24dp" />
+
+    <Button
+        android:id="@+id/btnGuardarProducto"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:text="Guardar Artículo"
+        android:backgroundTint="#10B981" />
+</LinearLayout>

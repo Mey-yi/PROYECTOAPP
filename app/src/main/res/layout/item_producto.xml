@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="12dp"
+    android:layout_marginBottom="8dp"
+    android:background="#F1F5F9"
+    android:gravity="center_vertical"
+    tools:context=".Producto">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvItemNombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre Artículo"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#0F172A" />
+
+        <TextView
+            android:id="@+id/tvItemDetalles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Precio: $0.00 | Stock: 0"
+            android:textSize="14sp"
+            android:textColor="#475569" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnItemEditar"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="Editar"
+        android:textSize="12sp"
+        android:backgroundTint="#F59E0B"
+        android:layout_marginEnd="6dp" />
+
+    <Button
+        android:id="@+id/btnItemEliminar"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="Borrar"
+        android:textSize="12sp"
+        android:backgroundTint="#EF4444" />
+
+</LinearLayout>
