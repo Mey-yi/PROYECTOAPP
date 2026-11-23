@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.proyectoapp.database.DatabaseHelper
 import com.example.proyectoapp.databinding.ActivityMainBinding
+import com.example.proyectoapp.util.SesionManager
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,6 +14,15 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        if (!SesionManager.autenticado) {
+            val intent = Intent(this, Login::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+            finish()
+            return
+        }
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -31,6 +41,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnCerrarSesion.setOnClickListener {
+            SesionManager.autenticado = false
             val intent = Intent(this, Login::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
@@ -40,6 +51,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        if (!::binding.isInitialized) return
         binding.tvContadorProductos.text = dbHelper.obtenerProductos().size.toString()
         binding.tvContadorVentas.text = dbHelper.obtenerVentas().size.toString()
     }

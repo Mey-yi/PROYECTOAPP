@@ -12,6 +12,7 @@ import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 import com.example.proyectoapp.databinding.ActivityLoginBinding
 import java.util.concurrent.Executor
+import com.example.proyectoapp.util.SesionManager
 
 class Login : AppCompatActivity() {
 
@@ -39,6 +40,7 @@ class Login : AppCompatActivity() {
             object : BiometricPrompt.AuthenticationCallback() {
                 override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
                     super.onAuthenticationSucceeded(result)
+                    SesionManager.autenticado = true
                     Toast.makeText(
                         applicationContext,
                         getString(R.string.login_acceso_concedido),
