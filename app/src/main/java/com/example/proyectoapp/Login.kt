@@ -39,7 +39,11 @@ class Login : AppCompatActivity() {
             object : BiometricPrompt.AuthenticationCallback() {
                 override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
                     super.onAuthenticationSucceeded(result)
-                    Toast.makeText(applicationContext, "Acceso concedido", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        applicationContext,
+                        getString(R.string.login_acceso_concedido),
+                        Toast.LENGTH_SHORT
+                    ).show()
                     val intent = Intent(this@Login, MainActivity::class.java)
                     startActivity(intent)
                     finish()
@@ -47,31 +51,28 @@ class Login : AppCompatActivity() {
 
                 override fun onAuthenticationFailed() {
                     super.onAuthenticationFailed()
-                    binding.tvEstadoLogin.text = "Huella no reconocida. Intenta de nuevo."
+                    binding.tvEstadoLogin.text = getString(R.string.login_huella_no_reconocida)
                 }
 
                 override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
                     super.onAuthenticationError(errorCode, errString)
-                    when (errorCode) {
+                    binding.tvEstadoLogin.text = when (errorCode) {
                         BiometricPrompt.ERROR_USER_CANCELED,
-                        BiometricPrompt.ERROR_NEGATIVE_BUTTON -> {
-                            binding.tvEstadoLogin.text = "Autenticación cancelada por el usuario."
-                        }
+                        BiometricPrompt.ERROR_NEGATIVE_BUTTON ->
+                            getString(R.string.login_cancelado)
                         BiometricPrompt.ERROR_LOCKOUT,
-                        BiometricPrompt.ERROR_LOCKOUT_PERMANENT -> {
-                            binding.tvEstadoLogin.text = "Sensor bloqueado por demasiados intentos fallidos. Espera unos segundos."
-                        }
-                        else -> {
-                            binding.tvEstadoLogin.text = "Error de autenticación: $errString"
-                        }
+                        BiometricPrompt.ERROR_LOCKOUT_PERMANENT ->
+                            getString(R.string.login_bloqueo)
+                        else ->
+                            getString(R.string.login_error_generico, errString)
                     }
                 }
             })
 
         promptInfo = BiometricPrompt.PromptInfo.Builder()
-            .setTitle("Acceso a Papelería PuntoEscolar")
-            .setSubtitle("Coloca tu huella dactilar para ingresar")
-            .setNegativeButtonText("Cancelar")
+            .setTitle(getString(R.string.login_titulo_prompt))
+            .setSubtitle(getString(R.string.login_subtitulo_prompt))
+            .setNegativeButtonText(getString(R.string.cancelar))
             .setAllowedAuthenticators(BIOMETRIC_STRONG)
             .build()
     }
@@ -83,23 +84,23 @@ class Login : AppCompatActivity() {
                 biometricPrompt.authenticate(promptInfo)
             }
             BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE -> {
-                mostrarMensaje("Este dispositivo no cuenta con sensor de huella dactilar.")
+                mostrarMensaje(getString(R.string.login_sin_sensor))
             }
             BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE -> {
-                mostrarMensaje("El sensor biométrico no está disponible en este momento.")
+                mostrarMensaje(getString(R.string.login_sensor_no_disponible))
             }
             BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED -> {
                 AlertDialog.Builder(this)
-                    .setTitle("Sin huella registrada")
-                    .setMessage("No tienes huellas registradas en este dispositivo. ¿Deseas ir a Configuración para agregar una?")
-                    .setPositiveButton("Configurar") { _, _ ->
+                    .setTitle(R.string.login_sin_huella_titulo)
+                    .setMessage(R.string.login_sin_huella_mensaje)
+                    .setPositiveButton(R.string.configurar) { _, _ ->
                         startActivity(Intent(Settings.ACTION_SECURITY_SETTINGS))
                     }
-                    .setNegativeButton("Cancelar", null)
+                    .setNegativeButton(R.string.cancelar, null)
                     .show()
             }
             else -> {
-                mostrarMensaje("Autenticación biométrica no soportada.")
+                mostrarMensaje(getString(R.string.login_no_soportada))
             }
         }
     }

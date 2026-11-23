@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">ProyectoApp</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="configurar">Configurar</string>
+    <string name="login_titulo_prompt">Acceso a Papelería PuntoEscolar</string>
+    <string name="login_subtitulo_prompt">Coloca tu huella dactilar para ingresar</string>
+    <string name="login_acceso_concedido">Acceso concedido</string>
+    <string name="login_huella_no_reconocida">Huella no reconocida. Intenta de nuevo.</string>
+    <string name="login_cancelado">Autenticación cancelada por el usuario.</string>
+    <string name="login_bloqueo">Sensor bloqueado por demasiados intentos fallidos. Espera unos segundos.</string>
+    <string name="login_error_generico">Error de autenticación: %1$s</string>
+    <string name="login_sin_sensor">Este dispositivo no cuenta con sensor de huella dactilar.</string>
+    <string name="login_sensor_no_disponible">El sensor biométrico no está disponible en este momento.</string>
+    <string name="login_sin_huella_titulo">Sin huella registrada</string>
+    <string name="login_sin_huella_mensaje">No tienes huellas registradas en este dispositivo. ¿Deseas ir a Configuración para agregar una?</string>
+    <string name="login_no_soportada">Autenticación biométrica no soportada.</string>
 </resources>
